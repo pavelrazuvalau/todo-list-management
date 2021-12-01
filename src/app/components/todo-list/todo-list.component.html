@@ -1,0 +1,20 @@
+<div class="todo-list-wrapper">
+  <div class="todo-list">
+    <h2>To do</h2>
+    <todolist-todo-item
+      *ngFor="let item of upcomingTodos"
+      [item]="item"
+      (toggleComplete)="onToggleComplete(item)"
+    >
+    </todolist-todo-item>
+  </div>
+  <div class="todo-list">
+    <h2>Done</h2>
+    <todolist-todo-item
+      *ngFor="let item of completedTodos"
+      [item]="item"
+      (toggleComplete)="onToggleComplete(item)"
+    >
+    </todolist-todo-item>
+  </div>
+</div>
