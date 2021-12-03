@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoItem } from 'src/app/models/todo.model';
 
 @Component({
@@ -6,25 +6,14 @@ import { TodoItem } from 'src/app/models/todo.model';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnChanges {
+export class TodoListComponent {
   @Input() todoList: TodoItem[] = [];
-  upcomingTodos: TodoItem[] = [];
-  completedTodos: TodoItem[] = [];
+  @Output() toggleComplete = new EventEmitter();
 
   constructor() { }
 
-  ngOnChanges(): void {
-    this.handleTodoList();
-  }
-
   onToggleComplete(item: TodoItem) {
-    item.isCompleted = !item.isCompleted;
-    this.handleTodoList();
-  }
-
-  private handleTodoList() {
-    this.upcomingTodos = this.todoList.filter((item) => !item.isCompleted);
-    this.completedTodos = this.todoList.filter((item) => item.isCompleted);
+    this.toggleComplete.emit(item);
   }
 
 }

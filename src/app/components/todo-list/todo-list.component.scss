@@ -1,4 +1,7 @@
 .todo-list-wrapper {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+    .todo-list {
+        width: 400px;
+    }
 }

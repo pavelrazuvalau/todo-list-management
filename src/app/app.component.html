@@ -1,10 +1,12 @@
-<header>
-  <h1 [innerText]="appTitle"></h1>
-</header>
+<mat-toolbar color="primary">
+    <header>
+        <h1 [innerText]="appTitle"></h1>
+    </header>
+</mat-toolbar>
 
 <main>
-  <todolist-add-todo (addTodo)="onAddTodo($event)"></todolist-add-todo>
-  <todolist-todo-list [todoList]="todoList"></todolist-todo-list>
+    <todolist-add-todo (addTodo)="onAddTodo($event)"></todolist-add-todo>
+    <todolist-todo-list [todoList]="todoList" (toggleComplete)="onToggleComplete($event)"></todolist-todo-list>
 </main>
 
 <footer></footer>
