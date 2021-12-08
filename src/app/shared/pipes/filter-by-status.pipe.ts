@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TodoItem } from '../models/todo.model';
+import { TodoItem } from '../../todo/models/todo.model';
 
 @Pipe({
   name: 'filterByStatus',
