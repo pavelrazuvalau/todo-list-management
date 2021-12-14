@@ -5,11 +5,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './interceptors/api.interceptor';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
+    NotFoundPageComponent,
   ],
   exports: [
     HeaderComponent,
