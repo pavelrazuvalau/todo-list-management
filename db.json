@@ -18,6 +18,21 @@
     {
       "id": 4,
       "title": "item",
+      "isCompleted": false
+    },
+    {
+      "id": 5,
+      "title": "New item",
+      "isCompleted": true
+    },
+    {
+      "id": 6,
+      "title": "hjkhkjh",
+      "isCompleted": false
+    },
+    {
+      "id": 7,
+      "title": "b",
       "isCompleted": true
     }
   ]

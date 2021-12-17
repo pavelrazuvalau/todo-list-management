@@ -6,21 +6,26 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     NotFoundPageComponent,
+    LoadingSpinnerComponent,
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

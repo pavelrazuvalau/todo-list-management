@@ -1,4 +1,4 @@
-<div class="todo-list-wrapper">
+<div class="todo-list-wrapper" *ngIf="todoList">
     <div class="todo-list">
         <h2>To do</h2>
         <todolist-todo-item *ngFor="let item of todoList | filterByStatus:false" [item]="item" (toggleComplete)="onToggleComplete(item)">

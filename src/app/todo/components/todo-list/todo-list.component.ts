@@ -7,7 +7,7 @@ import { TodoItem } from 'src/app/todo/models/todo.model';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  @Input() todoList: TodoItem[] = [];
+  @Input() todoList: TodoItem[] | null = [];
   @Output() toggleComplete = new EventEmitter();
 
   constructor() { }

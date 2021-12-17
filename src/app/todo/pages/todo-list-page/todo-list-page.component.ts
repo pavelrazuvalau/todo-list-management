@@ -1,6 +1,9 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../../models/todo.model';
-import { TodoService } from '../../services/todo.service';
+
+import * as fromTodos from '../../store/reducers/todo.reducer';
+import * as TodoActions from '../../store/actions/todo.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'todolist-todo-list-page',
@@ -8,30 +11,20 @@ import { TodoService } from '../../services/todo.service';
   styleUrls: ['./todo-list-page.component.scss']
 })
 export class TodoListPageComponent implements OnInit {
-  todoList: TodoItem[] = [];
+  todoList$ = this.store.select(fromTodos.getTodos)
 
-  constructor(private todoService: TodoService) { }
+  constructor(private store: Store<fromTodos.TodoState>) {}
 
   ngOnInit(): void {
-    this.getTodos();
+    this.store.dispatch(TodoActions.loadTodos());
   }
 
-  onAddTodo(item: TodoItem) {
-    this.todoService.addTodo(item).subscribe(() => {
-      this.getTodos();
-    });
+  onAddTodo(todo: TodoItem) {
+    this.store.dispatch(TodoActions.addTodo({ todo }));
   }
 
-  onToggleComplete(changedItem: TodoItem) {
-    this.todoService.toggleComplete(changedItem).subscribe(() => {
-      this.getTodos();
-    })
-  }
-
-  private getTodos() {
-    this.todoService.getTodos().subscribe((todoList) => {
-      this.todoList = todoList;
-    });
+  onToggleComplete(todo: TodoItem) {
+    this.store.dispatch(TodoActions.toggleTodo({ todo }));
   }
 
 }

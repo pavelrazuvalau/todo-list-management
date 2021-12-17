@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { TodoService } from './services/todo.service';
 import { TodoRoutingModule } from './todo-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './store/reducers/todo.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from './store/effects/todo.effects';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { TodoRoutingModule } from './todo-routing.module';
     MatCardModule,
     MatCheckboxModule,
     FormsModule,
+    StoreModule.forFeature('todos', todoReducer),
+    EffectsModule.forFeature([TodoEffects]),
   ],
   providers: [
     TodoService

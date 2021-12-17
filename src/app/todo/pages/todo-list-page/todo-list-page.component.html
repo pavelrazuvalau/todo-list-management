@@ -1,2 +1,2 @@
 <todolist-add-todo (addTodo)="onAddTodo($event)"></todolist-add-todo>
-<todolist-todo-list [todoList]="todoList" (toggleComplete)="onToggleComplete($event)"></todolist-todo-list>
+<todolist-todo-list [todoList]="todoList$ | async" (toggleComplete)="onToggleComplete($event)"></todolist-todo-list>
