@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { TodoService } from './services/todo.service';
 import { TodoRoutingModule } from './todo-routing.module';
@@ -16,6 +16,8 @@ import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './store/reducers/todo.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './store/effects/todo.effects';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { TodoEffects } from './store/effects/todo.effects';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
-    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
     StoreModule.forFeature('todos', todoReducer),
     EffectsModule.forFeature([TodoEffects]),
   ],

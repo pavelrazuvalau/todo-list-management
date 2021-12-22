@@ -1,6 +1,16 @@
-<form (submit)="onSubmit()">
-    <mat-form-field>
-        <input type="text" matInput placeholder="add todo" [(ngModel)]="todoItemName" name="todoItemName">
-    </mat-form-field>
-    <button mat-button type="submit">Submit</button>
+<form (submit)="onSubmit(ngForm)" #ngForm="ngForm" [formGroup]="todoForm">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Title" formControlName="title">
+    <mat-error *ngIf="todoForm.get('title')?.errors?.['required']">Title is required</mat-error>
+    <mat-error *ngIf="todoForm.get('title')?.errors?.['maxlength']">Title is too long</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Assignee" formControlName="assignee">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Due date" formControlName="dueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-button type="submit">Submit</button>
 </form>

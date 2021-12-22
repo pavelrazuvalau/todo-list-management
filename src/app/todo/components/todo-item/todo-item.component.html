@@ -1,5 +1,7 @@
 <mat-card class="todo-item" [todolistStatusHighlight]="item?.isCompleted">
     <mat-card-title>{{ item?.title }}</mat-card-title>
+    <div>Assignee: {{ item?.assignee }}</div>
+    <div>Due date: {{ item?.dueDate | date }}</div>
     <mat-checkbox [checked]="!!item?.isCompleted" (change)="onToggleComplete()">
         completed
     </mat-checkbox>
