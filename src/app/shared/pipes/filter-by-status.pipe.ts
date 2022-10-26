@@ -3,6 +3,7 @@ import { TodoItem } from '../../todo/models/todo.model';
 
 @Pipe({
   name: 'filterByStatus',
+  pure: false,
 })
 export class FilterByStatusPipe implements PipeTransform {
 
